@@ -1532,6 +1532,71 @@ a {
   color: #ffa600;
   text-align: center;
 }
+.cid-vrLNEy8LgM {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-image: url("../../../assets/images/roughwood-bg.jpg");
+}
+@media (max-width: 767px) {
+  .cid-vrLNEy8LgM .media-wrap {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+}
+.cid-vrLNEy8LgM .mbr-text {
+  color: #767676;
+}
+@media (max-width: 767px) {
+  .cid-vrLNEy8LgM .links {
+    text-align: center !important;
+  }
+}
+@media (max-width: 767px) {
+  .cid-vrLNEy8LgM .footer-lower .copyright {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+}
+.cid-vrLNEy8LgM .footer-lower hr {
+  margin: 1rem 0;
+  border-color: #000;
+  opacity: 0.05;
+}
+.cid-vrLNEy8LgM .footer-lower .social-list {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+.cid-vrLNEy8LgM .footer-lower .social-list .mbr-iconfont-social {
+  font-size: 1.3rem;
+  color: #232323;
+}
+.cid-vrLNEy8LgM .footer-lower .social-list .soc-item {
+  margin: 0 0.5rem;
+}
+.cid-vrLNEy8LgM .footer-lower .social-list a {
+  margin: 0;
+  opacity: 0.5;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+.cid-vrLNEy8LgM .footer-lower .social-list a:hover {
+  opacity: 1;
+}
+@media (max-width: 767px) {
+  .cid-vrLNEy8LgM .footer-lower .social-list {
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+}
+.cid-vrLNEy8LgM .copyright > p {
+  color: #ffffff;
+}
 .cid-vrLDA4Iwqc {
   padding-top: 0rem;
   padding-bottom: 0rem;
@@ -1549,13 +1614,4 @@ a {
 .cid-vrLDA4Iwqc .mbr-section-subtitle {
   color: #ffa600;
   text-align: center;
-}
-.cid-vrKNrpSNc3 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  background-image: url("../../../assets/images/roughwood-bg.jpg");
-  overflow: hidden;
-}
-.cid-vrKNrpSNc3 .media-container-row .mbr-text {
-  color: #ffffff;
 }
