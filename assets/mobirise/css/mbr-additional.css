@@ -1550,69 +1550,10 @@ a {
   color: #ffa600;
   text-align: center;
 }
-.cid-vrLHAbNZPn {
-  padding-top: 1rem;
-  padding-bottom: 0rem;
-  background-image: url("../../../assets/images/roughwood-bg.jpg");
-}
-.cid-vrLHAbNZPn .mbr-fallback-image.disabled {
-  display: none;
-}
-.cid-vrLHAbNZPn .mbr-fallback-image {
-  display: block;
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-}
-.cid-vrLHAbNZPn .item-wrapper {
-  display: flex;
-  margin-bottom: 2rem;
-}
-@media (max-width: 767px) {
-  .cid-vrLHAbNZPn .item-wrapper {
-    margin-bottom: 1rem;
-  }
-}
-.cid-vrLHAbNZPn .mbr-section-title {
-  text-align: center;
-}
-.cid-vrLHAbNZPn .mbr-section-subtitle {
-  text-align: center;
-}
-.cid-vrLHAbNZPn .image-wrapper {
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.cid-vrLHAbNZPn .image-wrapper img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-.cid-vrLHAbNZPn .content-head {
-  max-width: 800px;
-}
-.cid-vrLHAbNZPn .img-box {
-  display: flex;
-  justify-content: center;
-}
-.cid-vrLHAbNZPn .card-title {
-  text-align: center;
-}
-.cid-vrLHAbNZPn .card-text {
-  text-align: center;
-}
-.cid-vrLHAbNZPn .link {
-  text-align: center;
-}
 .cid-vrKNrpSNc3 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  background-color: #5a3a1e;
+  background-image: url("../../../assets/images/roughwood-bg.jpg");
   overflow: hidden;
 }
 .cid-vrKNrpSNc3 .media-container-row .mbr-text {
