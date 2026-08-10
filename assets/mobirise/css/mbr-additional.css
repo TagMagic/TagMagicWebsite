@@ -1412,15 +1412,15 @@ a {
   color: #ffa600;
   text-align: center;
 }
-.cid-vrERO98ZDc {
+.cid-vrW5aExGvh {
   padding-top: 6rem;
-  padding-bottom: 4rem;
+  padding-bottom: 6rem;
   background-image: url("../../../assets/images/roughwood-bg.jpg");
 }
-.cid-vrERO98ZDc .mbr-fallback-image.disabled {
+.cid-vrW5aExGvh .mbr-fallback-image.disabled {
   display: none;
 }
-.cid-vrERO98ZDc .mbr-fallback-image {
+.cid-vrW5aExGvh .mbr-fallback-image {
   display: block;
   background-size: cover;
   background-position: center center;
@@ -1429,90 +1429,32 @@ a {
   position: absolute;
   top: 0;
 }
-.cid-vrERO98ZDc .mbr-description {
-  text-align: left;
-}
-.cid-vrERO98ZDc .item-wrapper {
-  background: #5a3a1e;
-  padding: 2.25rem;
-  height: 100%;
+.cid-vrW5aExGvh .item-wrapper {
   display: flex;
-  flex-direction: column;
-}
-@media (max-width: 767px) {
-  .cid-vrERO98ZDc .item-wrapper {
-    padding: 2rem 1.5rem;
-  }
-}
-@media (min-width: 992px) and (max-width: 1200px) {
-  .cid-vrERO98ZDc .item-wrapper {
-    padding: 2rem 1.5rem;
-  }
-}
-.cid-vrERO98ZDc .card-title,
-.cid-vrERO98ZDc .iconfont-wrapper {
-  color: #ffffff;
-}
-.cid-vrERO98ZDc .card-text {
-  color: #000000;
-}
-.cid-vrERO98ZDc .mbr-section-title {
-  color: #ffffff;
-  text-align: center;
-}
-.cid-vrERO98ZDc .mbr-number {
-  color: #ffffff;
-}
-.cid-vrERO98ZDc .mbr-text,
-.cid-vrERO98ZDc .mbr-section-btn {
-  text-align: center;
-}
-.cid-vrERO98ZDc .card-text,
-.cid-vrERO98ZDc .item .mbr-section-btn {
-  text-align: left;
-  color: #ffffff;
-}
-.cid-vrERO98ZDc .mbr-section-btn {
-  margin-top: 1rem;
-}
-.cid-vrERO98ZDc .image-wrapper {
-  margin-bottom: 0rem;
-  padding: 0rem;
-}
-@media (max-width: 767px) {
-  .cid-vrERO98ZDc .image-wrapper {
-    padding: 0rem 0rem;
-    margin-bottom: 0rem;
-  }
-}
-@media (min-width: 992px) and (max-width: 1200px) {
-  .cid-vrERO98ZDc .image-wrapper {
-    padding: 0rem 0rem;
-    margin-bottom: 0rem;
-  }
-}
-.cid-vrERO98ZDc .image-wrapper img {
-  height: 100%;
-  object-fit: cover;
-}
-.cid-vrERO98ZDc .item-mb {
   margin-bottom: 2rem;
 }
 @media (max-width: 767px) {
-  .cid-vrERO98ZDc .item-mb {
+  .cid-vrW5aExGvh .item-wrapper {
     margin-bottom: 1rem;
   }
 }
-.cid-vrERO98ZDc .card-title {
-  text-align: left;
+.cid-vrW5aExGvh .content-head {
+  max-width: 800px;
 }
-.cid-vrERO98ZDc .item-content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.cid-vrW5aExGvh .img-wrapper {
+  padding-right: 1.5rem;
 }
-.cid-vrERO98ZDc .item-content .item-footer {
-  margin-top: auto;
+.cid-vrW5aExGvh .img-wrapper img {
+  width: 6rem;
+}
+.cid-vrW5aExGvh .mbr-section-title {
+  color: #ffffff;
+}
+.cid-vrW5aExGvh .card-text {
+  color: #ffffff;
+}
+.cid-vrW5aExGvh .card-title {
+  color: #ffffff;
 }
 .cid-vrLIkPfxif {
   padding-top: 1rem;
