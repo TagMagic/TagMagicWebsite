@@ -642,8 +642,8 @@ a:hover {
   color: #ffffff;
 }
 /* Scroll to top button*/
-.scrollToTop_wraper {
-  display: none;
+#scrollToTop a {
+  border-radius: 100px;
 }
 .form-control {
   font-family: 'Merienda', handwriting;
@@ -1735,8 +1735,8 @@ a {
   text-align: center;
 }
 .cid-vrLNEy8LgM {
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   background-image: url("../../../assets/images/roughwood-bg.jpg");
 }
 @media (max-width: 767px) {
