@@ -1120,11 +1120,11 @@
             },
             ".item-title": {
               "text-align": "left",
-              "color": "#5a3a1e"
+              "color": "#ffffff"
             },
             ".item-subtitle": {
               "text-align": "left",
-              "color": "#5a3a1e"
+              "color": "#ffffff"
             },
             ".content-head": {
               "max-width": "800px"
