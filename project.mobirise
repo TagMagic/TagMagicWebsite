@@ -1115,15 +1115,16 @@
               "color": "#ffffff"
             },
             ".mbr-text, .mbr-section-btn": {
-              "text-align": "left"
+              "text-align": "left",
+              "color": "#5a3a1e"
             },
             ".item-title": {
               "text-align": "left",
-              "color": "#000000"
+              "color": "#5a3a1e"
             },
             ".item-subtitle": {
               "text-align": "left",
-              "color": "#000000"
+              "color": "#5a3a1e"
             },
             ".content-head": {
               "max-width": "800px"
