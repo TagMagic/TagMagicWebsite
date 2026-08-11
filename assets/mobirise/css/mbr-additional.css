@@ -1505,7 +1505,7 @@ a {
 }
 .cid-vrX3vTadfy .item-content {
   padding: 2.25rem 2.25rem 0;
-  background: #ffa600;
+  background: #5a3a1e;
 }
 @media (min-width: 992px) and (max-width: 1200px) {
   .cid-vrX3vTadfy .item-content {
@@ -1521,7 +1521,7 @@ a {
   border-radius: 2rem;
   overflow: hidden;
   margin-bottom: 2rem;
-  background: #ffa600;
+  background: #5a3a1e;
   padding: 0rem;
   height: 100%;
   display: flex;
@@ -1573,15 +1573,15 @@ a {
 .cid-vrX3vTadfy .mbr-text,
 .cid-vrX3vTadfy .mbr-section-btn {
   text-align: left;
-  color: #000000;
+  color: #ffffff;
 }
 .cid-vrX3vTadfy .item-title {
   text-align: left;
-  color: #000000;
+  color: #5a3a1e;
 }
 .cid-vrX3vTadfy .item-subtitle {
   text-align: left;
-  color: #000000;
+  color: #5a3a1e;
 }
 .cid-vrX3vTadfy .content-head {
   max-width: 800px;
@@ -1628,7 +1628,7 @@ a {
   top: 0;
 }
 .cid-vrXxIj4tsa .item-wrapper {
-  background: #ffa600;
+  background: #5a3a1e;
   margin-bottom: 0.5rem;
   padding: 2.25rem;
   height: 100%;
@@ -1649,7 +1649,7 @@ a {
 }
 .cid-vrXxIj4tsa .card-title,
 .cid-vrXxIj4tsa .iconfont-wrapper {
-  color: #000000;
+  color: #ffffff;
 }
 .cid-vrXxIj4tsa .content-head {
   max-width: 800px;
@@ -1661,7 +1661,7 @@ a {
   color: #ffffff;
 }
 .cid-vrXxIj4tsa .card-text {
-  color: #000000;
+  color: #ffffff;
 }
 .cid-vrXxIj4tsa .item-mb {
   margin-bottom: 2rem;
@@ -1690,8 +1690,8 @@ a {
   text-align: center;
 }
 .cid-vrXBWqzL7L {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   background-image: url("../../../assets/images/roughwood-bg.jpg");
 }
 .cid-vrXBWqzL7L .mbr-overlay {
