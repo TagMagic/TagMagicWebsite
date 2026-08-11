@@ -925,7 +925,7 @@ a {
   position: relative;
   padding: 0.5rem 0.6rem;
   flex-wrap: nowrap;
-  background: rgba(90, 58, 30, 0.7) !important;
+  background: rgba(0, 0, 0, 0.7) !important;
   left: 0;
   right: 0;
   -webkit-box-pack: justify;
@@ -937,7 +937,7 @@ a {
   align-items: center;
   border-radius: 100vw;
   margin-top: 1rem;
-  background-color: #5a3a1e;
+  background-color: #000000;
   box-shadow: 0 30px 60px 0 rgba(27, 31, 10, 0.08);
 }
 @media (max-width: 992px) {
@@ -966,8 +966,8 @@ a {
   border-radius: 1.5rem;
   transition: .3s all !important;
   min-width: auto;
-  background: #5a3a1e;
-  background: rgba(90, 58, 30, 0.7) !important;
+  background: #000000;
+  background: rgba(0, 0, 0, 0.7) !important;
 }
 .cid-vrA281HiJF .nav-item:focus,
 .cid-vrA281HiJF .nav-link:focus {
@@ -1128,7 +1128,7 @@ a {
   padding: 0.667em 1.667em;
 }
 .cid-vrA281HiJF .navbar.navbar-expand-lg .dropdown .dropdown-menu {
-  background: #5a3a1e;
+  background: #000000;
 }
 .cid-vrA281HiJF .navbar.navbar-expand-lg .dropdown .dropdown-menu .dropdown-submenu {
   margin: 0;
@@ -1292,10 +1292,10 @@ a {
     width: 100%;
     padding: 1rem;
     border-radius: 1.5rem;
-    background: #5a3a1e;
+    background: #000000;
     opacity: 1;
-    border-color: rgba(90, 58, 30, 0.7) !important;
-    background: rgba(90, 58, 30, 0.7) !important;
+    border-color: rgba(0, 0, 0, 0.7) !important;
+    background: rgba(0, 0, 0, 0.7) !important;
     backdrop-filter: blur(8px);
   }
   .cid-vrA281HiJF .navbar-nav .nav-item .nav-link::after {
@@ -1362,7 +1362,7 @@ a {
 .cid-vrEOyxXbpw {
   padding-top: 10rem;
   padding-bottom: 6rem;
-  background-image: url("../../../assets/images/roughwood-bg.jpg");
+  background-image: url("../../../assets/images/darkwoodbg.jpg");
 }
 .cid-vrEOyxXbpw .mbr-fallback-image.disabled {
   display: none;
@@ -1397,7 +1397,7 @@ a {
 .cid-vrESQQP6uT {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: #5a3a1e;
+  background-color: #000000;
 }
 .cid-vrESQQP6uT .mbr-section-title {
   color: #ffa600;
@@ -1415,7 +1415,7 @@ a {
 .cid-vrW5aExGvh {
   padding-top: 6rem;
   padding-bottom: 6rem;
-  background-image: url("../../../assets/images/roughwood-bg.jpg");
+  background-image: url("../../../assets/images/darkwoodbg.jpg");
 }
 .cid-vrW5aExGvh .mbr-fallback-image.disabled {
   display: none;
@@ -1459,7 +1459,7 @@ a {
 .cid-vrX3GcHGab {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: #5a3a1e;
+  background-color: #000000;
 }
 .cid-vrX3GcHGab .mbr-section-title {
   color: #ffa600;
@@ -1475,9 +1475,9 @@ a {
   text-align: center;
 }
 .cid-vrX3vTadfy {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  background-image: url("../../../assets/images/roughwood-bg.jpg");
+  padding-top: 8rem;
+  padding-bottom: 10rem;
+  background-image: url("../../../assets/images/darkwoodbg.jpg");
 }
 .cid-vrX3vTadfy .item-mb {
   margin-bottom: 2rem;
@@ -1505,7 +1505,7 @@ a {
 }
 .cid-vrX3vTadfy .item-content {
   padding: 2.25rem 2.25rem 0;
-  background: #5a3a1e;
+  background: #000000;
 }
 @media (min-width: 992px) and (max-width: 1200px) {
   .cid-vrX3vTadfy .item-content {
@@ -1521,7 +1521,7 @@ a {
   border-radius: 2rem;
   overflow: hidden;
   margin-bottom: 2rem;
-  background: #5a3a1e;
+  background: #000000;
   padding: 0rem;
   height: 100%;
   display: flex;
@@ -1589,7 +1589,7 @@ a {
 .cid-vrXtNKMGa4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: #5a3a1e;
+  background-color: #000000;
 }
 .cid-vrXtNKMGa4 .mbr-section-title {
   color: #ffa600;
@@ -1605,9 +1605,9 @@ a {
   text-align: center;
 }
 .cid-vrXxIj4tsa {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  background-image: url("../../../assets/images/roughwood-bg.jpg");
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-image: url("../../../assets/images/darkwoodbg.jpg");
 }
 .cid-vrXxIj4tsa .item-wrapper img {
   width: 80px;
@@ -1628,7 +1628,7 @@ a {
   top: 0;
 }
 .cid-vrXxIj4tsa .item-wrapper {
-  background: #5a3a1e;
+  background: #000000;
   margin-bottom: 0.5rem;
   padding: 2.25rem;
   height: 100%;
@@ -1674,7 +1674,7 @@ a {
 .cid-vrXBZnJlLQ {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: #5a3a1e;
+  background-color: #000000;
 }
 .cid-vrXBZnJlLQ .mbr-section-title {
   color: #ffa600;
@@ -1690,9 +1690,9 @@ a {
   text-align: center;
 }
 .cid-vrXBWqzL7L {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  background-image: url("../../../assets/images/roughwood-bg.jpg");
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-image: url("../../../assets/images/darkwoodbg.jpg");
 }
 .cid-vrXBWqzL7L .mbr-overlay {
   background-color: #ffffff;
@@ -1719,7 +1719,7 @@ a {
 .cid-vrXBDac822 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: #5a3a1e;
+  background-color: #000000;
 }
 .cid-vrXBDac822 .mbr-section-title {
   color: #ffa600;
@@ -1737,7 +1737,7 @@ a {
 .cid-vrLNEy8LgM {
   padding-top: 15px;
   padding-bottom: 15px;
-  background-image: url("../../../assets/images/roughwood-bg.jpg");
+  background-image: url("../../../assets/images/darkwoodbg.jpg");
 }
 @media (max-width: 767px) {
   .cid-vrLNEy8LgM .media-wrap {
