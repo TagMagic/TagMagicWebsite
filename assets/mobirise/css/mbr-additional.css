@@ -1361,8 +1361,8 @@ a {
 }
 .cid-vrEOyxXbpw {
   padding-top: 8rem;
-  padding-bottom: 6rem;
-  background-image: url("../../../assets/images/darkwoodbg.jpg");
+  padding-bottom: 0rem;
+  background-color: #232323;
 }
 .cid-vrEOyxXbpw .mbr-fallback-image.disabled {
   display: none;
@@ -1390,6 +1390,7 @@ a {
 .cid-vrEOyxXbpw .mbr-text,
 .cid-vrEOyxXbpw .mbr-section-btn {
   color: #ffffff;
+  text-align: center;
 }
 .cid-vrEOyxXbpw .content-head {
   max-width: 800px;
@@ -1415,7 +1416,7 @@ a {
 .cid-vrW5aExGvh {
   padding-top: 6rem;
   padding-bottom: 6rem;
-  background-image: url("../../../assets/images/darkwoodbg.jpg");
+  background-color: #232323;
 }
 .cid-vrW5aExGvh .mbr-fallback-image.disabled {
   display: none;
@@ -1477,7 +1478,7 @@ a {
 .cid-vrX3vTadfy {
   padding-top: 6rem;
   padding-bottom: 6rem;
-  background-image: url("../../../assets/images/darkwoodbg.jpg");
+  background-color: #232323;
 }
 .cid-vrX3vTadfy .item-mb {
   margin-bottom: 2rem;
@@ -1607,7 +1608,7 @@ a {
 .cid-vs2LuzJrS8 {
   padding-top: 6rem;
   padding-bottom: 6rem;
-  background-image: url("../../../assets/images/darkwoodbg.jpg");
+  background-color: #232323;
 }
 .cid-vs2LuzJrS8 .item-mb {
   margin-bottom: 2rem;
@@ -1716,24 +1717,6 @@ a {
 .cid-vs2LuzJrS8 .content-head {
   max-width: 800px;
 }
-.cid-vrXtNKMGa4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  background-color: #000000;
-}
-.cid-vrXtNKMGa4 .mbr-section-title {
-  color: #ffa600;
-  text-align: center;
-}
-.cid-vrXtNKMGa4 .mbr-text,
-.cid-vrXtNKMGa4 .mbr-section-btn {
-  color: #05386b;
-  text-align: center;
-}
-.cid-vrXtNKMGa4 .mbr-section-subtitle {
-  color: #ffa600;
-  text-align: center;
-}
 .cid-vrXBZnJlLQ {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -1755,7 +1738,7 @@ a {
 .cid-vrXBWqzL7L {
   padding-top: 6rem;
   padding-bottom: 6rem;
-  background-image: url("../../../assets/images/darkwoodbg.jpg");
+  background-color: #232323;
 }
 .cid-vrXBWqzL7L .mbr-overlay {
   background-color: #ffffff;
@@ -1800,7 +1783,7 @@ a {
 .cid-vrLNEy8LgM {
   padding-top: 15px;
   padding-bottom: 15px;
-  background-image: url("../../../assets/images/darkwoodbg.jpg");
+  background-color: #232323;
 }
 @media (max-width: 767px) {
   .cid-vrLNEy8LgM .media-wrap {
