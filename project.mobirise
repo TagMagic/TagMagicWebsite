@@ -23,7 +23,7 @@
         "display7Font": "Merienda",
         "display7Size": 1.4,
         "display4Font": "Merienda",
-        "display4Size": 1.4,
+        "display4Size": "1.2",
         "isRoundedImages": true,
         "isRoundedButtons": true,
         "isLargeButtons": true,
