@@ -5,71 +5,43 @@ const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 // Create Supabase client
 const sb = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-// Run when page loads
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Find Mobirise password field
-    const passwordInput = document.getElementById("password");
+    // Find ANY element that contains the word "Login"
+    const loginElements = Array.from(document.querySelectorAll("*"))
+        .filter(el => el.textContent.trim().toLowerCase() === "login");
 
-    if (passwordInput) {
-        // Create checkbox
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.id = "showPassword";
-
-        // Create label
-        const label = document.createElement("label");
-        label.textContent = " Show Password";
-        label.style.display = "block";
-        label.style.marginTop = "10px";
-
-        // Attach checkbox to label
-        label.prepend(checkbox);
-
-        // Insert label AFTER password field
-        passwordInput.parentNode.insertBefore(label, passwordInput.nextSibling);
-
-        // Toggle logic
-        checkbox.addEventListener("change", () => {
-            passwordInput.type = checkbox.checked ? "text" : "password";
-        });
-    }
-
-    // Login button
-    const loginBtn = document.getElementById("loginBtn");
-
-    if (!loginBtn) {
-        console.error("Login button not found!");
+    if (loginElements.length === 0) {
+        console.error("No login element found on page.");
         return;
     }
 
-    loginBtn.addEventListener("click", async () => {
-        console.log("Login button clicked");
+    // Attach login handler to ALL matching elements
+    loginElements.forEach(el => {
+        el.addEventListener("click", async (event) => {
+            event.preventDefault(); // stop Mobirise navigation
+            event.stopPropagation(); // stop Mobirise form behavior
 
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value.trim();
+            const email = document.getElementById("email")?.value.trim();
+            const password = document.getElementById("password")?.value.trim();
 
-        if (!email || !password) {
-            alert("Please enter both email and password.");
-            return;
-        }
+            if (!email || !password) {
+                alert("Please enter both email and password.");
+                return;
+            }
 
-        console.log("Attempting login with:", email);
+            const { data, error } = await sb.auth.signInWithPassword({
+                email: email,
+                password: password
+            });
 
-        const { data, error } = await sb.auth.signInWithPassword({
-            email: email,
-            password: password
+            if (error) {
+                alert("Invalid email or password.");
+                return;
+            }
+
+            window.location.href = "dashboard.html";
         });
-
-        if (error) {
-            console.error("Login error:", error);
-            alert("Invalid email or password.");
-            return;
-        }
-
-        console.log("Login successful:", data);
-
-        // Redirect to dashboard
-        window.location.href = "dashboard.html";
     });
+
 });
