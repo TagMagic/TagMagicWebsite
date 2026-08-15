@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "TagMagicAPI",
-    "currentPage": "login.html",
+    "currentPage": "index.html",
     "theme": {
       "name": "startm5",
       "title": "StartM5",
