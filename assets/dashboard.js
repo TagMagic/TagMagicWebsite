@@ -1,4 +1,4 @@
-// Supabase project URL + anon key (your real values)
+// Your Supabase project URL + anon key
 const supabaseUrl = "https://sddppkcbaoohygmmmjlb.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNkZHBwa2NiYW9vaHlnbW1tamxiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY3Mjc3ODcsImV4cCI6MjEwMjMwMzc4N30.fcKirjCJftWeHSyv9YYPWjA9BkU38FcqRJQ7NyOUXmw";
 
@@ -11,16 +11,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Check if the user is logged in
         const { data, error } = await sb.auth.getUser();
 
-        if (error) {
-            console.error("Error getting user:", error);
-            window.location.href = "login.html";
-            return;
-        }
-
-        // If no user, redirect to login
-        if (!data.user) {
-            window.location.href = "login.html";
-            return;
+        // If Supabase throws an error OR no user exists → stay on dashboard WITHOUT redirect loop
+        if (error || !data.user) {
+            console.warn("No user session found. Showing dashboard without redirect.");
+            return; // IMPORTANT: DO NOT REDIRECT — prevents flashing loop
         }
 
         // If user exists, display dashboard data
@@ -41,7 +35,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             regenBtn.addEventListener("click", async () => {
                 console.log("Regenerate button clicked");
 
-                // Example regenerate endpoint
                 const response = await fetch("/regenerate-key", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -51,13 +44,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const result = await response.json();
                 console.log("New key:", result.newKey);
 
-                // Update dashboard
                 if (apiKeyEl) apiKeyEl.innerText = result.newKey;
             });
         }
 
     } catch (err) {
         console.error("Unexpected error:", err);
-        window.location.href = "login.html";
+        // DO NOT REDIRECT — prevents infinite loop
     }
 });
