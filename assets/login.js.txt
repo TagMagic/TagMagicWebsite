@@ -1,0 +1,28 @@
+// Initialize Supabase
+const supabase = supabase.createClient(
+  "https://sddppkcbaoohygmmmjlb.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNkZHBwa2NiYW9vaHlnbW1tamxiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY3Mjc3ODcsImV4cCI6MjEwMjMwMzc4N30.fcKirjCJftWeHSyv9YYPWjA9BkU38FcqRJQ7NyOUXmw"
+);
+
+// Mobirise workaround: assign ID to the form's login button
+const btn = document.querySelector('a[href="login.html"]');
+if (btn) btn.id = "loginBtn";
+
+// Handle login
+document.getElementById("loginBtn").onclick = async () => {
+  const email = document.querySelector('input[name="email"]').value;
+  const password = document.querySelector('input[name="password"]').value;
+
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    alert("Login failed: " + error.message);
+    return;
+  }
+
+  // Redirect to dashboard
+  window.location.href = "dashboard.html";
+};
