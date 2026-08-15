@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "TagMagicAPI",
-    "currentPage": "dashboard.html",
+    "currentPage": "login.html",
     "theme": {
       "name": "startm5",
       "title": "StartM5",
@@ -79,7 +79,8 @@
     "gdpr": false,
     "uniqCompNum": 104,
     "versionPublish": "6.1.12",
-    "screenshot": "screenshot.png"
+    "screenshot": "screenshot.png",
+    "google-analytics": "<script src=\"assets/login.js\"></script>\n<script src=\"assets/dashboard.js\"></script>\n"
   },
   "pages": {
     "index.html": {
