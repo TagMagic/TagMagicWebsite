@@ -4,6 +4,9 @@ const supabase = supabase.createClient(
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNkZHBwa2NiYW9vaHlnbW1tamxiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY3Mjc3ODcsImV4cCI6MjEwMjMwMzc4N30.fcKirjCJftWeHSyv9YYPWjA9BkU38FcqRJQ7NyOUXmw"
 );
 
+document.querySelector("form").onsubmit = (e) => e.preventDefault();
+
+
 // Mobirise workaround: assign ID to the form's login button
 const btn = document.querySelector('a[href="login.html"]');
 if (btn) btn.id = "loginBtn";
