@@ -7,7 +7,35 @@ const sb = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Find ANY element that contains the word "Login"
+    // -------------------------------
+    // ADD SHOW PASSWORD CHECKBOX
+    // -------------------------------
+    const passwordInput = document.getElementById("password");
+
+    if (passwordInput) {
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = "showPassword";
+
+        const label = document.createElement("label");
+        label.textContent = " Show Password";
+        label.style.display = "block";
+        label.style.marginTop = "10px";
+
+        label.prepend(checkbox);
+
+        // Insert checkbox AFTER password field
+        passwordInput.parentNode.insertBefore(label, passwordInput.nextSibling);
+
+        // Toggle logic
+        checkbox.addEventListener("change", () => {
+            passwordInput.type = checkbox.checked ? "text" : "password";
+        });
+    }
+
+    // -------------------------------
+    // UNIVERSAL LOGIN BUTTON HANDLER
+    // -------------------------------
     const loginElements = Array.from(document.querySelectorAll("*"))
         .filter(el => el.textContent.trim().toLowerCase() === "login");
 
@@ -16,11 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // Attach login handler to ALL matching elements
     loginElements.forEach(el => {
         el.addEventListener("click", async (event) => {
-            event.preventDefault(); // stop Mobirise navigation
-            event.stopPropagation(); // stop Mobirise form behavior
+            event.preventDefault();
+            event.stopPropagation();
 
             const email = document.getElementById("email")?.value.trim();
             const password = document.getElementById("password")?.value.trim();
