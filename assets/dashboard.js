@@ -1,8 +1,6 @@
 // Initialize Supabase client
 const supabaseUrl = "https://YOUR-SUPABASE-PROJECT.supabase.co";
 const supabaseKey = "YOUR-ANON-KEY";
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-
 document.addEventListener("DOMContentLoaded", async () => {
     console.log("Dashboard.js loaded");
 
