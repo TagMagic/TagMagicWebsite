@@ -5,6 +5,28 @@ const sb = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    // -------------------------------
+    // ⭐ Eye Icon Toggle
+    // -------------------------------
+    const passwordInput = document.getElementById("password");
+    const toggleEye = document.getElementById("toggle-eye");
+    const eyeIcon = document.getElementById("eye-icon");
+
+    if (toggleEye && passwordInput && eyeIcon) {
+        toggleEye.addEventListener("click", () => {
+            const isHidden = passwordInput.type === "password";
+            passwordInput.type = isHidden ? "text" : "password";
+
+            // Swap eye icon (open ↔ closed)
+            eyeIcon.innerHTML = isHidden
+                ? `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a19.77 19.77 0 0 1 5.06-5.94M9.88 9.88A3 3 0 0 1 14.12 14.12M1 1l22 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>`
+                : `<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path><circle cx="12" cy="12" r="3"></circle>`;
+        });
+    }
+
+    // -------------------------------
+    // ⭐ Signup Button Logic
+    // -------------------------------
     const btn = document.getElementById("signup-btn");
 
     if (!btn) return;
@@ -13,20 +35,21 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
         event.stopImmediatePropagation();
 
-        const name = document.getElementById("name")?.value.trim();
-        const email = document.getElementById("email")?.value.trim();
-        const password = document.getElementById("password")?.value.trim();
+        const name = document.getElementById("name")?.value?.trim() || "";
+        const email = document.getElementById("email")?.value?.trim();
+        const password = passwordInput?.value?.trim();
 
         if (!email || !password) {
             alert("Please fill out all fields.");
             return;
         }
 
+        // Create Supabase user
         const { error } = await sb.auth.signUp({
             email,
             password,
             options: {
-                data: { full_name: name || "" }
+                data: { full_name: name }
             }
         });
 
@@ -35,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        // Auto-login
         const { error: loginError } = await sb.auth.signInWithPassword({
             email,
             password
@@ -45,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        // Redirect to dashboard
         window.location.href = "dashboard.html";
     });
 });
