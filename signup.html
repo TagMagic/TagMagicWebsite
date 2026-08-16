@@ -22,7 +22,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merienda:300,400,500,600,700,800,900&display=swap"></noscript>
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
-  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=9Mus10"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=9Mus10" type="text/css">
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=AqR4YE"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=AqR4YE" type="text/css">
 
   
   
@@ -41,7 +41,7 @@
 
 
   
-  <section data-bs-version="5.1" class="menu menu4 cid-vstWJ3hMqp" once="menu" id="menu04-47">
+  <section data-bs-version="5.1" class="menu menu4 cid-vsu0XQnyj7" once="menu" id="menu04-4p">
 	
 
 	<nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
@@ -79,7 +79,7 @@
 	</nav>
 </section>
 
-<section data-bs-version="5.1" class="header5 cid-vstWJ3rqJP" id="header05-48">
+<section data-bs-version="5.1" class="header5 cid-vsu0XQARCZ" id="header05-4q">
 	
 
 	
@@ -93,16 +93,21 @@
 <br>
 <br><input type="email" id="email" placeholder="Your Email" class="form-control" style="margin-bottom:10px;">
 <br>
-<br></p><div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px;">
-<br>    <input type="password" id="password" placeholder="Create Password" class="form-control" style="width:60%;">
-<br>    
-<br>    <label style="display:flex; align-items:center; cursor:pointer;">
-<br>        <input type="checkbox" id="showPassword" style="margin-right:6px;">
-<br>        Show
-<br>    </label>
-<br></div>
-<br><p></p>
-				<div class="mbr-section-btn mt-3"><a class="btn btn-secondary-outline display-7" href="dashboard.html">Sign Up<br></a></div>
+<br><input type="password" id="password" placeholder="Create Password" class="form-control" style="margin-bottom:10px;">
+<br>
+<br><label style="float:right; margin-top:-35px; margin-right:10px;">
+<br>    <input type="checkbox" id="showPassword">
+<br>    Show Password
+<br></label>
+<br>
+<br><script>
+<br>document.getElementById("showPassword").addEventListener("change", function() {
+<br>    const pw = document.getElementById("password");
+<br>    pw.type = this.checked ? "text" : "password";
+<br>});
+<br></script>
+<br></p>
+				<div class="mbr-section-btn mt-3"><a class="btn btn-secondary-outline display-7" href="dashboard.html">Sign Up</a></div>
 			</div>
 		</div>
 		<div class="row mt-5 justify-content-center">
@@ -113,7 +118,7 @@
 	</div>
 </section>
 
-<section data-bs-version="5.1" class="header1 cid-vstWJ3zyvV mbr-parallax-background" id="header1-49">
+<section data-bs-version="5.1" class="header1 cid-vsu0XQJy6H mbr-parallax-background" id="header1-4r">
 
     
 
@@ -131,7 +136,7 @@
     </div>
 </section>
 
-<section data-bs-version="5.1" class="footer5 cid-vstWJ3Fsu2" once="footers" id="footer5-4a">
+<section data-bs-version="5.1" class="footer5 cid-vsu0XQQRt9" once="footers" id="footer5-4s">
 
     
 
@@ -175,7 +180,7 @@
     </div>
 </section>
 
-<section data-bs-version="5.1" class="header1 cid-vstWJ3PreK mbr-parallax-background" id="header1-4b">
+<section data-bs-version="5.1" class="header1 cid-vsu0XR1vf2 mbr-parallax-background" id="header1-4t">
 
     
 
