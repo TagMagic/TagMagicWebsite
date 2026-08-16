@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "TagMagicAPI",
-    "currentPage": "index.html",
+    "currentPage": "login.html",
     "theme": {
       "name": "startm5",
       "title": "StartM5",
@@ -80,7 +80,7 @@
     "uniqCompNum": 192,
     "versionPublish": "6.1.12",
     "screenshot": "screenshot.png",
-    "google-analytics": "<script src=\"https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2\"></script>\n\n<script src=\"assets/login.js\"></script>\n\n<script src=\"assets/dashboard.js\"></script>\n\n<script src=\"assets/signup.js\"></script>\n\n"
+    "google-analytics": ""
   },
   "pages": {
     "index.html": {
