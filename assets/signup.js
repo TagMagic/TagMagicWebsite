@@ -1,20 +1,18 @@
-// Supabase project URL + anon key
 const supabaseUrl = "https://sddppkcbaoohygmmmjlb.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNkZHBwa2NiYW9vaHlnbW1tamxiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY3Mjc3ODcsImV4cCI6MjEwMjMwMzc4N30.fcKirjCJftWeHSyv9YYPWjA9BkU38FcqRJQ7NyOUXmw";
 
-// Create Supabase client
 const sb = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Find ANY element whose text is exactly "Sign Up"
-    const signupElements = Array.from(document.querySelectorAll("*"))
-        .filter(el => el.textContent.trim().toLowerCase() === "sign up");
+    // Find ANY clickable element containing "sign"
+    const signupButtons = Array.from(document.querySelectorAll("a, button, div"))
+        .filter(el => el.textContent.toLowerCase().includes("sign"));
 
-    signupElements.forEach(el => {
+    signupButtons.forEach(el => {
         el.addEventListener("click", async (event) => {
 
-            // STOP MOBIRISE FROM FOLLOWING THE FORCED LINK
+            // Stop Mobirise forced link
             event.preventDefault();
             event.stopImmediatePropagation();
 
@@ -41,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Auto-login after signup
+            // Auto-login
             const { error: loginError } = await sb.auth.signInWithPassword({
                 email,
                 password
@@ -52,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Redirect to dashboard
+            // Redirect
             window.location.href = "dashboard.html";
         });
     });
