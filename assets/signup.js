@@ -1,6 +1,8 @@
+// Supabase project URL + anon key
 const supabaseUrl = "https://sddppkcbaoohygmmmjlb.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNkZHBwa2NiYW9vaHlnbW1tamxiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY3Mjc3ODcsImV4cCI6MjEwMjMwMzc4N30.fcKirjCJftWeHSyv9YYPWjA9BkU38FcqRJQ7NyOUXmw";
 
+// Create Supabase client
 const sb = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -12,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     signupElements.forEach(el => {
         el.addEventListener("click", async (event) => {
 
-            // STOP MOBIRISE FROM FOLLOWING THE LINK
+            // STOP MOBIRISE FROM FOLLOWING THE FORCED LINK
             event.preventDefault();
             event.stopImmediatePropagation();
 
@@ -39,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Auto-login
+            // Auto-login after signup
             const { error: loginError } = await sb.auth.signInWithPassword({
                 email,
                 password
