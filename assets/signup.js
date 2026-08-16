@@ -1,41 +1,36 @@
-// Supabase project URL + anon key
 const supabaseUrl = "https://sddppkcbaoohygmmmjlb.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNkZHBwa2NiYW9vaHlnbW1tamxiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY3Mjc3ODcsImV4cCI6MjEwMjMwMzc4N30.fcKirjCJftWeHSyv9YYPWjA9BkU38FcqRJQ7NyOUXmw";
 
-// Create Supabase client
 const sb = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Attach to ANY element with the text "Sign Up"
+    // Find ANY element whose text is exactly "Sign Up"
     const signupElements = Array.from(document.querySelectorAll("*"))
         .filter(el => el.textContent.trim().toLowerCase() === "sign up");
 
-    if (signupElements.length === 0) {
-        console.error("No signup element found.");
-        return;
-    }
-
     signupElements.forEach(el => {
         el.addEventListener("click", async (event) => {
+
+            // STOP MOBIRISE FROM FOLLOWING THE LINK
             event.preventDefault();
-            event.stopPropagation();
+            event.stopImmediatePropagation();
 
             const name = document.getElementById("name")?.value.trim();
             const email = document.getElementById("email")?.value.trim();
             const password = document.getElementById("password")?.value.trim();
 
-            if (!name || !email || !password) {
+            if (!email || !password) {
                 alert("Please fill out all fields.");
                 return;
             }
 
-            // Create Supabase user with name metadata
-            const { data, error } = await sb.auth.signUp({
-                email: email,
-                password: password,
+            // Create Supabase user
+            const { error } = await sb.auth.signUp({
+                email,
+                password,
                 options: {
-                    data: { full_name: name }
+                    data: { full_name: name || "" }
                 }
             });
 
@@ -44,10 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Auto-login after signup
-            const { data: loginData, error: loginError } = await sb.auth.signInWithPassword({
-                email: email,
-                password: password
+            // Auto-login
+            const { error: loginError } = await sb.auth.signInWithPassword({
+                email,
+                password
             });
 
             if (loginError) {
@@ -61,4 +56,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-
