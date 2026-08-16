@@ -5,54 +5,46 @@ const sb = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Find ANY clickable element containing "sign"
-    const signupButtons = Array.from(document.querySelectorAll("a, button, div"))
-        .filter(el => el.textContent.toLowerCase().includes("sign"));
+    const btn = document.getElementById("signup-btn");
 
-    signupButtons.forEach(el => {
-        el.addEventListener("click", async (event) => {
+    if (!btn) return;
 
-            // Stop Mobirise forced link
-            event.preventDefault();
-            event.stopImmediatePropagation();
+    btn.addEventListener("click", async (event) => {
+        event.preventDefault();
+        event.stopImmediatePropagation();
 
-            const name = document.getElementById("name")?.value.trim();
-            const email = document.getElementById("email")?.value.trim();
-            const password = document.getElementById("password")?.value.trim();
+        const name = document.getElementById("name")?.value.trim();
+        const email = document.getElementById("email")?.value.trim();
+        const password = document.getElementById("password")?.value.trim();
 
-            if (!email || !password) {
-                alert("Please fill out all fields.");
-                return;
+        if (!email || !password) {
+            alert("Please fill out all fields.");
+            return;
+        }
+
+        const { error } = await sb.auth.signUp({
+            email,
+            password,
+            options: {
+                data: { full_name: name || "" }
             }
-
-            // Create Supabase user
-            const { error } = await sb.auth.signUp({
-                email,
-                password,
-                options: {
-                    data: { full_name: name || "" }
-                }
-            });
-
-            if (error) {
-                alert("Signup failed: " + error.message);
-                return;
-            }
-
-            // Auto-login
-            const { error: loginError } = await sb.auth.signInWithPassword({
-                email,
-                password
-            });
-
-            if (loginError) {
-                alert("Login failed after signup.");
-                return;
-            }
-
-            // Redirect
-            window.location.href = "dashboard.html";
         });
-    });
 
+        if (error) {
+            alert("Signup failed: " + error.message);
+            return;
+        }
+
+        const { error: loginError } = await sb.auth.signInWithPassword({
+            email,
+            password
+        });
+
+        if (loginError) {
+            alert("Login failed after signup.");
+            return;
+        }
+
+        window.location.href = "dashboard.html";
+    });
 });
