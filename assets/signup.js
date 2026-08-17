@@ -3,73 +3,32 @@ const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 
 const sb = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-document.addEventListener("DOMContentLoaded", () => {
+document.getElementById("signup-btn").addEventListener("click", async () => {
 
-    // -------------------------------
-    // ⭐ Eye Icon Toggle
-    // -------------------------------
-    const passwordInput = document.getElementById("password");
-    const toggleEye = document.getElementById("toggle-eye");
-    const eyeIcon = document.getElementById("eye-icon");
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-    if (toggleEye && passwordInput && eyeIcon) {
-        toggleEye.addEventListener("click", () => {
-            const isHidden = passwordInput.type === "password";
-            passwordInput.type = isHidden ? "text" : "password";
-
-            // Swap eye icon (open ↔ closed)
-            eyeIcon.innerHTML = isHidden
-                ? `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a19.77 19.77 0 0 1 5.06-5.94M9.88 9.88A3 3 0 0 1 14.12 14.12M1 1l22 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>`
-                : `<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path><circle cx="12" cy="12" r="3"></circle>`;
-        });
+    if (!email || !password) {
+        alert("Email and password required.");
+        return;
     }
 
-    // -------------------------------
-    // ⭐ Signup Button Logic
-    // -------------------------------
-    const btn = document.getElementById("signup-btn");
+    const { data, error } = await sb.auth.signUp({ email, password });
 
-    if (!btn) return;
+    if (error) {
+        alert(error.message);
+        return;
+    }
 
-    btn.addEventListener("click", async (event) => {
-        event.preventDefault();
-        event.stopImmediatePropagation();
+    const user = data.user;
 
-        const name = document.getElementById("name")?.value?.trim() || "";
-        const email = document.getElementById("email")?.value?.trim();
-        const password = passwordInput?.value?.trim();
-
-        if (!email || !password) {
-            alert("Please fill out all fields.");
-            return;
-        }
-
-        // Create Supabase user
-        const { error } = await sb.auth.signUp({
-            email,
-            password,
-            options: {
-                data: { full_name: name }
-            }
-        });
-
-        if (error) {
-            alert("Signup failed: " + error.message);
-            return;
-        }
-
-        // Auto-login
-        const { error: loginError } = await sb.auth.signInWithPassword({
-            email,
-            password
-        });
-
-        if (loginError) {
-            alert("Login failed after signup.");
-            return;
-        }
-
-        // Redirect to dashboard
-        window.location.href = "dashboard.html";
+    await sb.from("profiles").insert({
+        id: user.id,
+        api_key: crypto.randomUUID(),
+        plan: "Free",
+        usage: 0
     });
+
+    alert("Signup successful!");
+    window.location.href = "dashboard.html";
 });
