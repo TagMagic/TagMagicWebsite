@@ -13,6 +13,7 @@ document.getElementById("signup-btn").addEventListener("click", async () => {
         return;
     }
 
+    // Create auth user
     const { data, error } = await sb.auth.signUp({ email, password });
 
     if (error) {
@@ -22,11 +23,24 @@ document.getElementById("signup-btn").addEventListener("click", async () => {
 
     const user = data.user;
 
-    await sb.from("profiles").insert({
+    // Insert into users table
+    await sb.from("users").insert({
         id: user.id,
+        email: email,
+        plan: "Free"
+    });
+
+    // Insert API key
+    await sb.from("apikeys").insert({
+        user_id: user.id,
         api_key: crypto.randomUUID(),
-        plan: "Free",
-        usage: 0
+        active: true
+    });
+
+    // Insert usage row
+    await sb.from("usage").insert({
+        user_id: user.id,
+        daily_count: 0
     });
 
     alert("Signup successful!");
