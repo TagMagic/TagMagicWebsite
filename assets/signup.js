@@ -45,6 +45,11 @@ document.getElementById("signup-btn").addEventListener("click", async () => {
 
     const user = data.user;
 
+    // ----------------------------------------------------
+    // FIXED: API KEY GENERATION (crypto.randomUUID fallback)
+    // ----------------------------------------------------
+    const apiKey = (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2));
+
     // Insert into users table
     await sb.from("users").insert({
         id: user.id,
@@ -55,7 +60,7 @@ document.getElementById("signup-btn").addEventListener("click", async () => {
     // Insert API key
     await sb.from("apikeys").insert({
         user_id: user.id,
-        api_key: crypto.randomUUID(),
+        api_key: apiKey,
         active: true
     });
 

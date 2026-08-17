@@ -3,94 +3,93 @@ const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 
 const sb = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-document.addEventListener("DOMContentLoaded", async () => {
+// ----------------------------------------------------
+// LOAD USER SESSION
+// ----------------------------------------------------
+async function loadDashboard() {
+    const { data: sessionData } = await sb.auth.getSession();
 
-    // -------------------------------
-    // CHECK SESSION
-    // -------------------------------
-    const { data: { session } } = await sb.auth.getSession();
-
-    if (!session) {
+    if (!sessionData.session) {
         window.location.href = "login.html";
         return;
     }
 
-    const user = session.user;
+    const user = sessionData.session.user;
 
-    // -------------------------------
-    // LOAD PLAN FROM users TABLE
-    // -------------------------------
-    const { data: userRow, error: userError } = await sb
+    // ----------------------------------------------------
+    // LOAD USERS TABLE ROW
+    // ----------------------------------------------------
+    const { data: userRow } = await sb
         .from("users")
-        .select("plan")
+        .select("*")
         .eq("id", user.id)
         .single();
 
-    if (userError || !userRow) {
-        alert("User record not found.");
+    if (!userRow) {
+        document.getElementById("user-email").innerText = "User record not found";
         return;
     }
 
-    document.getElementById("plan").textContent = userRow.plan || "Free";
+    document.getElementById("user-email").innerText = userRow.email;
+    document.getElementById("user-plan").innerText = userRow.plan;
 
-    // -------------------------------
-    // LOAD API KEY FROM apikeys TABLE
-    // -------------------------------
-    const { data: keyRow, error: keyError } = await sb
+    // ----------------------------------------------------
+    // LOAD API KEY
+    // ----------------------------------------------------
+    const { data: keyRow } = await sb
         .from("apikeys")
-        .select("api_key")
-        .eq("user_id", user.id)
-        .eq("active", true)
-        .single();
-
-    if (keyError || !keyRow) {
-        alert("API key not found.");
-        return;
-    }
-
-    document.getElementById("api-key").textContent = keyRow.api_key;
-
-    // -------------------------------
-    // LOAD USAGE FROM usage TABLE
-    // -------------------------------
-    const { data: usageRow, error: usageError } = await sb
-        .from("usage")
-        .select("daily_count")
+        .select("*")
         .eq("user_id", user.id)
         .single();
 
-    if (usageError || !usageRow) {
-        document.getElementById("usage").textContent = 0;
+    if (!keyRow) {
+        document.getElementById("api-key").innerText = "No API key found";
     } else {
-        document.getElementById("usage").textContent = usageRow.daily_count;
+        document.getElementById("api-key").innerText = keyRow.api_key;
     }
 
-    // -------------------------------
-    // REGENERATE KEY
-    // -------------------------------
-    document.getElementById("regen-key").addEventListener("click", async () => {
-        const newKey = crypto.randomUUID();
+    // ----------------------------------------------------
+    // LOAD USAGE
+    // ----------------------------------------------------
+    const { data: usageRow } = await sb
+        .from("usage")
+        .select("*")
+        .eq("user_id", user.id)
+        .single();
 
-        const { error: updateError } = await sb
-            .from("apikeys")
-            .update({ api_key: newKey })
-            .eq("user_id", user.id)
-            .eq("active", true);
+    if (!usageRow) {
+        document.getElementById("usage-count").innerText = "0";
+    } else {
+        document.getElementById("usage-count").innerText = usageRow.daily_count;
+    }
+}
 
-        if (updateError) {
-            alert("Error regenerating key.");
-            return;
-        }
+loadDashboard();
 
-        document.getElementById("api-key").textContent = newKey;
-        alert("New API key generated.");
-    });
+// ----------------------------------------------------
+// LOGOUT
+// ----------------------------------------------------
+document.getElementById("logout-btn").addEventListener("click", async () => {
+    await sb.auth.signOut();
+    window.location.href = "login.html";
+});
 
-    // -------------------------------
-    // LOGOUT
-    // -------------------------------
-    document.getElementById("logout").addEventListener("click", async () => {
-        await sb.auth.signOut();
-        window.location.href = "login.html";
-    });
+// ----------------------------------------------------
+// REGENERATE API KEY
+// ----------------------------------------------------
+document.getElementById("regen-key-btn").addEventListener("click", async () => {
+
+    const { data: sessionData } = await sb.auth.getSession();
+    const user = sessionData.session.user;
+
+    const newKey = (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2));
+
+    await sb
+        .from("apikeys")
+        .update({ api_key: newKey })
+        .eq("user_id", user.id);
+
+    document.getElementById("api-key").innerText = newKey;
+
+    alert("API key regenerated.");
 });
