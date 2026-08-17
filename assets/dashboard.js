@@ -3,9 +3,7 @@ const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 
 const sb = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-// ----------------------------------------------------
-// LOAD USER SESSION
-// ----------------------------------------------------
+// LOAD DASHBOARD
 async function loadDashboard() {
     const { data: sessionData } = await sb.auth.getSession();
 
@@ -16,69 +14,47 @@ async function loadDashboard() {
 
     const user = sessionData.session.user;
 
-    // ----------------------------------------------------
-    // LOAD USERS TABLE ROW
-    // ----------------------------------------------------
+    // USERS TABLE
     const { data: userRow } = await sb
         .from("users")
         .select("*")
         .eq("id", user.id)
         .single();
 
-    if (!userRow) {
-        document.getElementById("user-email").innerText = "User record not found";
-        return;
-    }
+    document.getElementById("plan").innerText =
+        userRow ? userRow.plan : "Unknown";
 
-    document.getElementById("user-email").innerText = userRow.email;
-    document.getElementById("user-plan").innerText = userRow.plan;
-
-    // ----------------------------------------------------
-    // LOAD API KEY
-    // ----------------------------------------------------
+    // API KEY
     const { data: keyRow } = await sb
         .from("apikeys")
         .select("*")
         .eq("user_id", user.id)
         .single();
 
-    if (!keyRow) {
-        document.getElementById("api-key").innerText = "No API key found";
-    } else {
-        document.getElementById("api-key").innerText = keyRow.api_key;
-    }
+    document.getElementById("api-key").innerText =
+        keyRow ? keyRow.api_key : "No API key found";
 
-    // ----------------------------------------------------
-    // LOAD USAGE
-    // ----------------------------------------------------
+    // USAGE
     const { data: usageRow } = await sb
         .from("usage")
         .select("*")
         .eq("user_id", user.id)
         .single();
 
-    if (!usageRow) {
-        document.getElementById("usage-count").innerText = "0";
-    } else {
-        document.getElementById("usage-count").innerText = usageRow.daily_count;
-    }
+    document.getElementById("usage").innerText =
+        usageRow ? usageRow.daily_count : "0";
 }
 
 loadDashboard();
 
-// ----------------------------------------------------
 // LOGOUT
-// ----------------------------------------------------
-document.getElementById("logout-btn").addEventListener("click", async () => {
+document.getElementById("logout").addEventListener("click", async () => {
     await sb.auth.signOut();
     window.location.href = "login.html";
 });
 
-// ----------------------------------------------------
-// REGENERATE API KEY
-// ----------------------------------------------------
-document.getElementById("regen-key-btn").addEventListener("click", async () => {
-
+// REGENERATE KEY
+document.getElementById("regen-key").addEventListener("click", async () => {
     const { data: sessionData } = await sb.auth.getSession();
     const user = sessionData.session.user;
 
